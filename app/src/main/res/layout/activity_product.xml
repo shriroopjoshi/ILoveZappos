@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="product"
+            type="pojo.Product" />
+    </data>
+    <RelativeLayout
+        android:id="@+id/rlProductLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:text="@{product.productName}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:padding="5sp"
+            android:textSize="20sp"
+            android:id="@+id/tvProductName" />
+        <TextView
+            android:text="@{product.brandName}"
+            android:id="@+id/tvBrandName"
+            android:padding="5sp"
+            android:textSize="15sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvProductName"
+            android:layout_alignParentStart="true"/>
+        <RelativeLayout
+            android:id="@+id/rlImage"
+            android:padding="5sp"
+            android:layout_below="@id/tvBrandName"
+            android:layout_alignParentStart="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></RelativeLayout>
+        <ImageView
+            android:contentDescription="@string/picture"
+            android:id="@+id/ivThumbnail"
+            android:padding="5sp"
+            android:layout_below="@id/tvBrandName"
+            android:layout_alignParentStart="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/cost"
+            android:padding="5sp"
+            android:textSize="14sp"
+            android:layout_below="@id/ivThumbnail"
+            android:layout_alignParentStart="true"
+            android:text="Price: "
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/discount"
+            android:padding="5sp"
+            android:textSize="14sp"
+            android:text="Discount offered: "
+            android:layout_below="@id/cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:text="@{product.price}"
+            android:id="@+id/tvCost"
+            android:padding="5sp"
+            android:textSize="14sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/discount"
+            android:layout_toEndOf="@+id/cost" />
+
+        <TextView
+            android:id="@+id/tvDiscount"
+            android:text="@{product.percentOff}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/discount"
+            android:layout_alignBottom="@+id/discount"
+            android:layout_toEndOf="@+id/discount" />
+
+        <TextView
+            android:id="@+id/on"
+            android:text="on"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvDiscount"
+            android:layout_alignBottom="@+id/tvDiscount"
+            android:layout_toEndOf="@+id/tvDiscount"
+            android:layout_marginStart="10dp" />
+        <TextView
+            android:text="@{product.originalPrice}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/tvDiscount"
+            android:layout_alignBottom="@+id/tvDiscount"
+            android:layout_toEndOf="@+id/on"
+            android:layout_marginStart="10dp" />
+
+        <android.support.design.widget.FloatingActionButton
+            app:fabSize="normal"
+            android:id="@+id/fabBrowser"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fab_margin"
+            app:elevation="6dp"
+            app:srcCompat="@android:drawable/ic_menu_set_as"
+            android:clickable="true" />
+
+    </RelativeLayout>
+</layout>
